@@ -1,10 +1,11 @@
 package com.example.ursus.myapplication;
 
 import android.app.Application;
+import android.support.annotation.VisibleForTesting;
 
 import com.example.ursus.myapplication.injection.DaggerDefaultComponent;
 import com.example.ursus.myapplication.injection.DefaultComponent;
-import com.example.ursus.myapplication.injection.NetworkModule;
+import com.example.ursus.myapplication.injection.DefaultModule;
 
 /**
  * Created by ursus on 25-Apr-17.
@@ -19,11 +20,16 @@ public class App extends Application {
         super.onCreate();
 
         mComponent = DaggerDefaultComponent.builder()
-                .defaultModule(new NetworkModule())
+                .defaultModule(new DefaultModule())
                 .build();
     }
 
-    public DefaultComponent getComponent() {
+    @VisibleForTesting
+	public void setComponent(DefaultComponent component) {
+		mComponent = component;
+	}
+
+	public DefaultComponent getComponent() {
         return mComponent;
     }
 }

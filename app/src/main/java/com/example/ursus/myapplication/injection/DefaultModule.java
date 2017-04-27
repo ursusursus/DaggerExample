@@ -14,15 +14,22 @@ import dagger.Provides;
  */
 
 @Module
-public class NetworkModule {
+public class DefaultModule {
 
-    @Provides @Singleton
-    public RestClient provideRestClient(Parser parser, Dao dao) {
-        return new RestClient(parser, dao);
-    }
+	@Provides
+	@Singleton
+	public RestClient provideRestClient(Parser parser, Dao dao) {
+		return new RestClient(parser, dao);
+	}
 
-    @Provides
-    public Parser providerParser() {
-        return new Parser();
-    }
+	@Provides
+	public Parser providerParser() {
+		return new Parser();
+	}
+
+	@Provides
+	@Singleton
+	public Dao provideDao() {
+		return new Dao();
+	}
 }

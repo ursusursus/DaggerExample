@@ -1,7 +1,8 @@
 package com.example.ursus.myapplication.injection;
 
-import com.example.ursus.myapplication.FooActivity;
-import com.example.ursus.myapplication.MainActivity;
+import com.example.ursus.myapplication.ui.BaseActivity;
+import com.example.ursus.myapplication.ui.FooActivity;
+import com.example.ursus.myapplication.ui.MainActivity;
 
 import javax.inject.Singleton;
 
@@ -12,8 +13,9 @@ import dagger.Component;
  */
 
 @Singleton
-@Component(modules = NetworkModule.class)
+@Component(modules = DefaultModule.class)
 public interface DefaultComponent {
     void inject(MainActivity mainActivity);
     void inject(FooActivity fooActivity);
+	void inject(BaseActivity baseActivity);
 }

@@ -16,10 +16,10 @@ public class RestClient {
     private final Dao mDao;
 
     @Inject
-    public RestClient(Parser parser, Dao dao) {
-        mParser = parser;
-        mDao = dao;
-    }
+	public RestClient(Parser parser, Dao dao) {
+		mParser = parser;
+		mDao = dao;
+	}
 
     public void foo() {
         Log.d("Default", "this=" + this + " mParser=" + mParser + " mDao=" + mDao);

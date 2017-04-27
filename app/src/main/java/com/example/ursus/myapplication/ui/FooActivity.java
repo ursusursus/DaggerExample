@@ -1,8 +1,9 @@
-package com.example.ursus.myapplication;
+package com.example.ursus.myapplication.ui;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 
+import com.example.ursus.myapplication.R;
 import com.example.ursus.myapplication.net.RestClient;
 
 import javax.inject.Inject;
@@ -20,7 +21,7 @@ public class FooActivity extends BaseActivity {
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_foo);
-        getCompontent().inject(this);
+        getComponent().inject(this);
 
         mRestClient.foo();
     }
